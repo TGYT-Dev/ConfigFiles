@@ -77,7 +77,7 @@ body {
 
 .social-links {
     display: flex;
-    flex-direction: row; /* horizontal */
+    flex-direction: column; /* horizontal */
     align-items: center;
     justify-content: center;
     gap: 20px; /* spacing between icons */
