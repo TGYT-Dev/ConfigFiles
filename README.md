@@ -4,4 +4,4 @@ Gallery:
 
 # Terminals
 
-[TerminalWithCmatrix](https://github.com/TGYT-Dev/ConfigFiles/blob/configFilesBranch/images/swappy-20251209_215052.png?raw=true)
+[TerminalWithCmatrix](images/swappy-20251209_215052.png)
