@@ -1,10 +1,15 @@
 if status is-interactive
 
-    # Astetichs
+    # Variables 
+
+    set gitRepoDir "$HOME/ConfigFiles/"
+
+    # Astetichs (change this to something better later)
 
     zfetch
+    starship init fish | source
 
-    # Alias - Maybe make them actual scripts later
+    # Alias - Maybe make them actual scripts later so I can use arguments
 
     alias roblox sober
     alias cat 'bat --theme="gruvbox-dark" --style=numbers,grid'
@@ -16,8 +21,21 @@ if status is-interactive
 
     # Functions
 
+    function rn
+
+        mv $argv[1] $argv[2]
+
+    end
+
+    function checkRunning # lowk just got tired of typing ts out
+
+        ps aux | grep -v grep | grep "$argv"
+
+    end
+
     function sober
-        if test "$argv[1]" = -u
+
+        if test "$argv[1]" = -u # updates it cuz i hate the flatpak command 
             flatpak update org.vinegarhq.Sober
         else
             flatpak run org.vinegarhq.Sober
@@ -25,5 +43,11 @@ if status is-interactive
 
     end
 
+    function updateConfigInGitRepo # using this for easier updating - first arg is the config to replace
+
+        rm -r $gitRepoDir/$argv[1]
+        cp -r $HOME/.config/$argv[1] $gitRepoDir/
+
+    end
+
 end
-starship init fish | source
