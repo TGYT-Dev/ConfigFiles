@@ -4,4 +4,4 @@ Gallery:
 
 # Terminals
 
-[TerminalWithCmatrix](images/swappy-20251209_215052.png)
+![TerminalWithCmatrix](images/swappy-20251209_215052.png)
