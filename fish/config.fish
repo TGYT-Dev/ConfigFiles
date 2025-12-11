@@ -68,18 +68,8 @@ if status is-interactive
 
         if set -q _flag_add_to_git # checks if add-to-git was passed
 
-            if set -q _flag_commit # checks if commit was passed to see when to start taking arguments as file to stage  NOTE: this is a mess
-
-                for arg in $argv[4..-1]
-                    git -C $gitRepoDir add $arg
-                end
-
-            else
-
-                for arg in $argv[3..-1]
-                    git -C $gitRepoDir add $arg
-                end
-
+            for arg in $argv[2..-1] #  NOTE: this should correctly stage all the files due to the fact that the flags are gone after argparse
+                git -C $gitRepoDir add $arg
             end
 
             if set -q _flag_commit # checks if commit was passed
