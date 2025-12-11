@@ -14,8 +14,6 @@ if status is-interactive
     alias roblox sober
     alias cat 'bat --theme="gruvbox-dark" --style=numbers,grid'
     alias ls 'eza --icons --no-permissions --no-user --no-time --no-filesize'
-    alias chrome google-chrome-stable
-    alias google google-chrome-stable
     alias vencordInject 'sh -c "$(curl -sS https://vencord.dev/install.sh)"'
     alias updateConfig updateConfigInGitRepo
 
@@ -69,12 +67,12 @@ if status is-interactive
         if set -q _flag_add_to_git # checks if add-to-git was passed
 
             for arg in $argv[2..-1] #  NOTE: this should correctly stage all the files due to the fact that the flags are gone after argparse
-                git -C $gitRepoDir add $arg
+                git -C $gitRepoDir add $arg #  WARN: this makes git throw an error becuase it trys to stage the commit message as if it was a file but its harmless so oh well
             end
 
             if set -q _flag_commit # checks if commit was passed
 
-                git -C $gitRepoDir commit -m "$argv[3]"
+                git -C $gitRepoDir commit -m "$argv[2]"
 
             end
 
