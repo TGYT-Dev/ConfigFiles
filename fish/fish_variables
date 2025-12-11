@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export SPOTIFY_CLIENT_ID:089566a2f8de4ef0b7dc9cf9e86e9df
+SETUVAR --export SPOTIFY_CLIENT_SECRET:0165b7c0ef1647beb83bcea8dd1c56db
+SETUVAR --export SPOTIFY_REDIRECT_URI:http\x3a//127\x2e0\x2e0\x2e1\x3a8888/callback
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
