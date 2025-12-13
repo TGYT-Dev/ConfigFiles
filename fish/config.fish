@@ -2,22 +2,34 @@ if status is-interactive
 
     # Variables 
 
-    set gitRepoDir "$HOME/ConfigFiles/" #  NOTE: This reminds me of that one steam issue a while ago where some dude got his system rm -rf becuase his $STEAMROOT was blank. that might be able to happen to this?
+    set gitRepoDir "$HOME/ConfigFiles/"
 
     # Astetichs (change this to something better later)
 
     zfetch
     starship init fish | source
 
-    # Alias - Maybe make them actual scripts later so I can use arguments
+    # Alias - Maybe make them actual scripts later so I can use arguments for ones that could use them 
 
+    alias discord vencord
     alias roblox sober
     alias cat 'bat --theme="gruvbox-dark" --style=numbers,grid'
     alias ls 'eza --icons --no-permissions --no-user --no-time --no-filesize'
-    alias vencordInject 'sh -c "$(curl -sS https://vencord.dev/install.sh)"'
     alias updateConfig updateConfigInGitRepo
 
     # Functions  NOTE: these should probably be in ~/.config/fish/functions but like oh well maybe later
+
+    function vencord
+
+        argparse u/update -- $argv
+
+        if set -q _flag_update # Runs what used to be the alias vencordInject if -u / --update flag is passed
+            sh -c "$(curl -sS https://vencord.dev/install.sh)"
+        end
+
+        command discord # if command prefix isn't used it would call itself recursively
+
+    end
 
     function rn
 
