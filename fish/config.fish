@@ -98,4 +98,21 @@ if status is-interactive
 
     end
 
+    function backupFromGitRepo # Backs up config files from git repo to ~/.config
+
+        set configsInGitRepo (ls $gitRepoDir | grep -v images | grep -v README.md)
+
+        ls $gitRepoDir
+        echo $configsInGitRepo
+
+        for folder in $configsInGitRepo
+
+            set folder (string trim / $folder) # Removes slash becuase $gitRepoDir already has one at the end
+            rm -r ~/.config/$folder
+            cp -r $gitRepoDir$folder ~/.config/$folder
+
+        end
+
+    end
+
 end
