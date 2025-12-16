@@ -5,26 +5,24 @@
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "idle_inhibitor", "custom/suspend", "custom/poweroff", "sway/mode", "custom/media", "sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
     "modules-center": [],
     // 2020-10-21: disable "cpu" so it never forces a higher power state
-    "modules-right": ["tray", "pulseaudio", "network", "memory", "temperature#cpu", "temperature#gpu", "backlight", "keyboard-state", "battery", "battery#bat2", "clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "memory", "temperature#cpu", "temperature#gpu", "clock"],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+     "sway/workspaces": {
+         "format": "{name}: {icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "urgent": "",
+             "focused": "",
+            "default": ""
+         }
+     },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -86,7 +84,7 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%I:%M:%S}",
-        "format": "{:%Y-%m-%d %I:%M}",
+        "format": "{:%d %I:%M}",
         "interval": 60
     },
     "cpu": {
