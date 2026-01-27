@@ -3,33 +3,41 @@ if status is-interactive
     # Variables 
 
     set gitRepoDir "$HOME/ConfigFiles/"
+    set mcServerDir "$HOME/servers/mcServers/"
 
     # Astetichs (change this to something better later)
 
     zfetch
     starship init fish | source
 
-    # Alias - Maybe make them actual scripts later so I can use arguments for ones that could use them 
+    source ~/.config/fish/fzfTheme.fish
 
-    alias discord vencord
-    alias roblox sober
-    alias cat 'bat --theme="gruvbox-dark" --style=numbers,grid'
-    alias ls 'eza --icons --no-permissions --no-user --no-time --no-filesize'
-    alias updateConfig updateConfigInGitRepo
+    # Aliases 
+
+    if test -f ~/.config/fish/aliases.fish
+        source ~/.config/fish/aliases.fish
+    end
 
     # Functions  NOTE: these should probably be in ~/.config/fish/functions but like oh well maybe later
 
-    function vencord
+    function saveAlias
 
-        argparse u/update -- $argv
-
-        if set -q _flag_update # Runs what used to be the alias vencordInject if -u / --update flag is passed
-            sh -c "$(curl -sS https://vencord.dev/install.sh)"
-        end
-
-        command discord # if command prefix isn't used it would call itself recursively
+        set fullAlias "$argv[1] '$argv[2..-1]"
+        echo "alias $fullAlias" >>~/.config/fish/aliases.fish
 
     end
+
+    #    function vencord
+    #
+    #    argparse u/update d/discord-update -- $argv
+    #
+    #    if set -q _flag_update # Runs what used to be the alias vencordInject if -u / --update flag is passed
+    #        sh -c "$(curl -sS https://vencord.dev/install.sh)"
+    #    end
+    #
+    #    command discord # if command prefix isn't used it would call itself recursively
+    #
+    #end
 
     function rn
 
@@ -54,22 +62,6 @@ if status is-interactive
     end
 
     function updateConfigInGitRepo # args - #1 Config to update, #2 flags, #3 commit message (required of -c is passed), #4 files to stage (opitonal - not implemented yet)
-
-        # Function got a little long so this is the flow:
-        #
-        # 1. Remove old config from git repo and add new config from ~/.config
-        #
-        # 2. check if addToGit flag was passed, if not nothing else should be needed
-        #
-        # 3. does the add to git stuff by cheking for commit flag (as if it exists there should be a commit message too)
-        #
-        #  NOTE: the entire thing may be fucked if a commit messagges is not passed and I don't feel like finding out, and it will throw errors if it isn't a string and has spaces in the commit message
-        #
-        # 4. checks for commit flag and commits if it was passed
-        #
-        # 5. checks for push flag and pushes if it was passed
-        #
-        #  INFO: updateConfigInGitRepo <configName> [-a / --add-to-git] [-c / --commit "commit message"] [-p / --push] <Files to stage>
 
         rm -r $gitRepoDir/$argv[1] # Remove old config
         cp -r $HOME/.config/$argv[1] $gitRepoDir/ # Adds new config
@@ -115,4 +107,16 @@ if status is-interactive
 
     end
 
+    function startMcServer
+
+        # Creates a new tmux session in ~/servers/mcServers/
+
+        tmux new-session -s mcServer -c $mcServerDir
+        tmux send-keys -t mcServer './selectAndStartServer' Enter
+
+        # I have a template MC server I made that runs paper and geyser + floodgate #
+        # In each servers folder there is a startServer script that also runs playit.gg as I dont want to port foward that shit
+        # INFO: I will probably switch that to a cloudflare tunnel with a custom domain once I get a card
+
+    end
 end
