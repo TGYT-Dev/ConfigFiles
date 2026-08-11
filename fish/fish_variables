@@ -1,11 +1,14 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-
+SETUVAR --export FZF_DEFAULT_OPTS:\x20\x2d\x2dcolor\x3dbg\x2b\x3a\x233c3836\x2cbg\x3a\x2332302f\x2cspinner\x3a\x2389b482\x2chl\x3a\x237daea3\x20\x2d\x2dcolor\x3dfg\x3a\x23bdae93\x2cheader\x3a\x237daea3\x2cinfo\x3a\x23d8a657\x2cpointer\x3a\x2389b482\x20\x2d\x2dcolor\x3dmarker\x3a\x2389b482\x2cfg\x2b\x3a\x23ebdbb2\x2cprompt\x3a\x23d8a657\x2chl\x2b\x3a\x237daea3
+SETUVAR --export TSUB_TOKEN:MTUwMzU4NzM4NDI3OTY5OTU1Nw\x2eGvUDkW\x2ekLx0tQyR5nX45Rti5R4oVh\x2dXgd9zmAgu1MJTGg
 SETUVAR __fish_initialized:4300
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ecatppuccin/fish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_user_paths:/home/dev/\x2espicetify
-SETUVAR flaskSecretKey:gJUK\x3dKD1pQH\x2bPXj\x3f
-
+SETUVAR fish_user_paths:/home/dev/\x2elocal/bin\x1e/home/dev/\x2espicetify
+SETUVAR lastWeatherApiCall:23
+SETUVAR location:27\x2e3298\x2c\x2d82\x2e4576
+SETUVAR locationOutput:Fruitville\x2c\x20Florida
+SETUVAR weatherOutput:\U000f0590\x20\x2079\x2e6\u00b0F
